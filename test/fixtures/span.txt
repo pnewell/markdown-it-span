@@ -1,0 +1,127 @@
+.
+::Span::
+.
+<p><span>Span</span></p>
+.
+
+.
+x ::::foo:: bar::
+.
+<p>x <span><span>foo</span> bar</span></p>
+.
+
+.
+x ::foo ::bar::::
+.
+<p>x <span>foo <span>bar</span></span></p>
+.
+
+.
+x ::::foo::::
+.
+<p>x <span><span>foo</span></span></p>
+.
+
+.
+x :::foo:::
+.
+<p>x :<span>foo</span>:</p>
+.
+
+Spans have the same priority as emphases:
+
+.
+**::test::::
+
+::::test::::
+.
+<p><strong>::test</strong>::</p>
+<p><span>**test</span>**</p>
+.
+
+
+Spans have the same priority as emphases with respect to links
+.
+[::link]()::
+
+::[link::]()
+.
+<p><a href="">::link</a>::</p>
+<p>::<a href="">link::</a></p>
+.
+
+
+Spans have the same priority as emphases with respect to backticks
+.
+::`code::`
+
+`::code`::
+.
+<p>::<code>code::</code></p>
+<p><code>::code</code>::</p>
+.
+
+
+Nested spans
+.
+::foo ::bar:: baz::
+.
+<p><span>foo <span>bar</span> baz</span></p>
+.
+
+
+Nested spans with emphasis
+.
+::f **o ::o b:: a** r::
+.
+<p><span>f <strong>o <span>o b</span> a</strong> r</span></p>
+.
+
+
+Should not have a whitespace between text and "::":
+.
+foo :: bar :: baz
+.
+<p>foo :: bar :: baz</p>
+.
+
+
+Newline should be considered a whitespace:
+.
+::test
+:: a
+
+::
+test::
+
+::
+test
+::
+.
+<p>::test
+:: a</p>
+<p>::
+test::</p>
+<p>::
+test
+::</p>
+.
+
+
+.
+x ::a ::foo:::::::::::bar:: b::
+
+x ::a ::foo::::::::::::bar:: b::
+.
+<p>x <span>a <span>foo</span></span>:::<span><span>bar</span> b</span></p>
+<p>x <span>a <span>foo</span></span>::::<span><span>bar</span> b</span></p>
+.
+
+
+From CommonMark test suite, replacing `**` with our marker:
+
+.
+a::"foo"::
+.
+<p>a::&quot;foo&quot;::</p>
+.

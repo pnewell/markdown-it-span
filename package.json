@@ -1,20 +1,20 @@
 {
-  "name": "markdown-it-mark",
-  "version": "2.0.0",
-  "description": "<mark> tag for markdown-it markdown parser.",
+  "name": "markdown-it-span",
+  "version": "1.0.0",
+  "description": "<span> tag for markdown-it markdown parser.",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
     "markdown",
-    "mark"
+    "span"
   ],
-  "homepage": "https://github.com/markdown-it/markdown-it-mark",
+  "homepage": "https://github.com/pnewell/markdown-it-span",
   "repository": {
     "type": "git",
-    "url": "git://github.com/markdown-it/markdown-it-mark.git"
+    "url": "git://github.com/pnewell/markdown-it-span.git"
   },
   "bugs": {
-    "url": "https://github.com/markdown-it/markdown-it-mark/issues"
+    "url": "https://github.com/pnewell/markdown-it-span/issues"
   },
   "license": "MIT",
   "main": "index.js",

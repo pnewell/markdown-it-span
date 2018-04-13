@@ -11,21 +11,21 @@ module.exports = function ins_plugin(md) {
 
     if (silent) { return false; }
 
-    if (marker !== 0x3D/* = */) { return false; }
+    if (marker !== 0x3A/* : */) { return false; }
 
     scanned = state.scanDelims(state.pos, true);
     len = scanned.length;
     ch = String.fromCharCode(marker);
 
-    if (len < 2) { return false; }
+    if (len < 1) { return false; }
 
-    if (len % 2) {
+    if (len % 1) {
       token         = state.push('text', '', 0);
       token.content = ch;
       len--;
     }
 
-    for (i = 0; i < len; i += 2) {
+    for (i = 0; i < len; i += 1) {
       token         = state.push('text', '', 0);
       token.content = ch + ch;
 
@@ -60,7 +60,7 @@ module.exports = function ins_plugin(md) {
     for (i = 0; i < max; i++) {
       startDelim = delimiters[i];
 
-      if (startDelim.marker !== 0x3D/* = */) {
+      if (startDelim.marker !== 0x3A/* : */) {
         continue;
       }
 
@@ -71,21 +71,21 @@ module.exports = function ins_plugin(md) {
       endDelim = delimiters[startDelim.end];
 
       token         = state.tokens[startDelim.token];
-      token.type    = 'mark_open';
-      token.tag     = 'mark';
+      token.type    = 'span_open';
+      token.tag     = 'span';
       token.nesting = 1;
-      token.markup  = '==';
+      token.markup  = ':';
       token.content = '';
 
       token         = state.tokens[endDelim.token];
-      token.type    = 'mark_close';
-      token.tag     = 'mark';
+      token.type    = 'span_close';
+      token.tag     = 'span';
       token.nesting = -1;
-      token.markup  = '==';
+      token.markup  = ':';
       token.content = '';
 
       if (state.tokens[endDelim.token - 1].type === 'text' &&
-          state.tokens[endDelim.token - 1].content === '=') {
+          state.tokens[endDelim.token - 1].content === ':') {
 
         loneMarkers.push(endDelim.token - 1);
       }
@@ -101,7 +101,7 @@ module.exports = function ins_plugin(md) {
       i = loneMarkers.pop();
       j = i + 1;
 
-      while (j < state.tokens.length && state.tokens[j].type === 'mark_close') {
+      while (j < state.tokens.length && state.tokens[j].type === 'span_close') {
         j++;
       }
 
@@ -115,6 +115,6 @@ module.exports = function ins_plugin(md) {
     }
   }
 
-  md.inline.ruler.before('emphasis', 'mark', tokenize);
-  md.inline.ruler2.before('emphasis', 'mark', postProcess);
+  md.inline.ruler.before('emphasis', 'span', tokenize);
+  md.inline.ruler2.before('emphasis', 'span', postProcess);
 };

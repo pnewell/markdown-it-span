@@ -1,13 +1,13 @@
 {
-  "name": "markdown-it-mark",
-  "main": "dist/markdown-it-mark.js",
-  "homepage": "https://github.com/markdown-it/markdown-it-mark",
-  "description": "<mark> tag for markdown-it markdown parser.",
+  "name": "markdown-it-span",
+  "main": "dist/markdown-it-span.js",
+  "homepage": "https://github.com/pnewell/markdown-it-span",
+  "description": "<span> tag for markdown-it markdown parser.",
   "keywords": [
     "markdown-it-plugin",
     "markdown-it",
     "markdown",
-    "mark"
+    "span"
   ],
   "license": "MIT",
   "ignore": [

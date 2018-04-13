@@ -1,14 +1,14 @@
-# markdown-it-mark
+# markdown-it-span
 
-[![Build Status](https://img.shields.io/travis/markdown-it/markdown-it-mark/master.svg?style=flat)](https://travis-ci.org/markdown-it/markdown-it-mark)
-[![NPM version](https://img.shields.io/npm/v/markdown-it-mark.svg?style=flat)](https://www.npmjs.org/package/markdown-it-mark)
-[![Coverage Status](https://img.shields.io/coveralls/markdown-it/markdown-it-mark/master.svg?style=flat)](https://coveralls.io/r/markdown-it/markdown-it-mark?branch=master)
+[![Build Status](https://img.shields.io/travis/pnewell/markdown-it-span/master.svg?style=flat)](https://travis-ci.org/pnewell/markdown-it-span)
+[![NPM version](https://img.shields.io/npm/v/markdown-it-span.svg?style=flat)](https://www.npmjs.org/package/markdown-it-span)
+[![Coverage Status](https://img.shields.io/coveralls/pnewell/markdown-it-span/master.svg?style=flat)](https://coveralls.io/r/pnewell/markdown-it-span?branch=master)
 
-> `<mark>` tag plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
+> `<span>` tag plugin for [markdown-it](https://github.com/markdown-it/markdown-it) markdown parser.
 
 __v2.+ requires `markdown-it` v5.+, see changelog.__
 
-`==marked==` => `<mark>inserted</mark>`
+`::spanned::` => `<span>spanned</span>`
 
 Markup uses the same conditions as CommonMark [emphasis](http://spec.commonmark.org/0.15/#emphasis-and-strong-emphasis).
 
@@ -18,23 +18,23 @@ Markup uses the same conditions as CommonMark [emphasis](http://spec.commonmark.
 node.js, browser:
 
 ```bash
-npm install markdown-it-mark --save
-bower install markdown-it-mark --save
+npm install markdown-it-span --save
+bower install markdown-it-span --save
 ```
 
 ## Use
 
 ```js
 var md = require('markdown-it')()
-            .use(require('markdown-it-mark'));
+            .use(require('markdown-it-span'));
 
-md.render('==marked==') // => '<p><mark>marked</mark></p>'
+md.render('::spanned::') // => '<p><span>spanned</span></p>'
 ```
 
 _Differences in browser._ If you load script directly into the page, without
-package system, module will add itself globally as `window.markdownitMark`.
+package system, module will add itself globally as `window.markdownitSpan`.
 
 
 ## License
 
-[MIT](https://github.com/markdown-it/markdown-it-mark/blob/master/LICENSE)
+[MIT](https://github.com/pnewell/markdown-it-span/blob/master/LICENSE)
